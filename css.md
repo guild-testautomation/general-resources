@@ -31,9 +31,10 @@ This of course isn't that very useful if you want to change more specific elemen
 1. IDs 
 2. Classes
 
-Then there is also a third kind that is a bit more complicated: 
+Then there is allso a third and fourth kind that are a bit more complicated: 
 
 - Attribute selectors
+- Pseudo classes
 
 In the rest of this guide we will just focus on the selectors as we are going to use them for testautomation and not css styling. 
 
@@ -124,6 +125,30 @@ Combining all selectors we have used so far we could do something like
 a#google-url.outside-link[href*="google"]
 ```
 
+## Pseudo classes
+Technically not really selectors but still very useful. Pseudo classes are added *after* a selector and indicate a state of the selector. For example when hovering over an element on an HTML page you can target this with css with 
+
+```css
+a:hover
+```
+
+For testautomation purposes there are a few pseudo classess that can help you in better targeting your element. So for example with `:not()` you can exclude some elements from a match. So say that you have the following html. 
+
+```html
+<div class="element">text</div>
+<span class="element">text</span>
+``` 
+
+And you want only to the div element.
+You can target this with the methods we used before or you can do 
+
+```css
+.element:not(span)
+```
+
+There are also pseudo classes to determine if something is visible, checked (for checkboxes), the Xth child element and a whole lot more. 
+
+[See this page for more information](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
 ## additional reading
 
