@@ -17,19 +17,7 @@ a {
 }
 ```
 
-This of course isn't that very useful if you want to change more specific elements. To target specific elements there are a whole host of options available but at its most basic you are looking at three kinds: 
-
-1. Types
-2. IDs 
-3. Classes
-
-Then there is also a fourth kind that is a bit more complicated: 
-
-- Attribute selectors
-
-## Types, IDs & Classes
-
-Type selectors simply select the different html elements, the first example shown is a type selector that select all `a` elements which are urls. Used alone these selectors are rarely used in testautomation as they are rarely unique. There are often used in combination with other selectors to make a selection more specific. 
+This is called a type selector, these simply select the different html elements, the  example shown selects all `a` elements which are urls. Used alone these selectors are rarely used in testautomation as they are rarely unique. There are often used in combination with other selectors to make a selection more specific. 
 Other elements you will often encounter are: 
 
 - `div`
@@ -38,7 +26,18 @@ Other elements you will often encounter are:
 
 [See this page for a complete reference of elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
+This of course isn't that very useful if you want to change more specific elements. To target specific elements there are a whole host of options available but at its most basic you are looking at two kinds: 
 
+1. IDs 
+2. Classes
+
+Then there is also a third kind that is a bit more complicated: 
+
+- Attribute selectors
+
+In the rest of this guide we will just focus on the selectors as we are going to use them for testautomation and not css styling. 
+
+## IDs & Classes
 
 IDs are supposed to be unique to one element and in css always start with #, in html you can also spot them rather easily 
 
@@ -48,17 +47,13 @@ IDs are supposed to be unique to one element and in css always start with #, in 
 So in css you can do something like this 
 
 ```css
-#thisThing {
-        property: propertyvalue;
-}
+#thisThing
 ```
 
 And target that specific element with that ID. Sometimes someone messes up and you end up with two elements with the same ID, but if one is an url and the other is something else (a div for example) you can be more specific with 
 
 ```css
-a#thisThing {
-        property: propertyvalue;
-}
+a#thisThing
 ```
 
 
@@ -71,17 +66,13 @@ Classes are not unique to single elements but can be seen as a category of eleme
 And you target them with a dot like this 
 
 ```css
-.theseThings {
-        property: propertyvalue;
-}
+.theseThings
 ```
 
 or once again if you need the specific kind of element 
 
 ```css
-a.theseThings {
-        property: propertyvalue;
-}
+a.theseThings
 ```
 
 
@@ -103,24 +94,18 @@ As you can see it does not have any classes or IDs that will allow you to target
 Css allows you to select an element based on the selector. Say that you want to select all elements with the value `this goes to google` in their title attribute. We can do that like this
 
 ```css
-[title="this goes to google"] {
-        property: propertyvalue;
-}
+[title="this goes to google"]
 ```
 
 Or if you want all `a` elements that go to anything with `google` in the url you can use 
 
 ```css
-[href*="google"] {
-        property: propertyvalue;
-}
+[href*="google"]
 ```
 
 We can also select for just the attribute, so if we want any element with a `title` attribute we can use
 ```css
-[title] {
-        property: propertyvalue;
-}
+[title]
 ```
 
 [See this page for all the options you can use](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
@@ -136,9 +121,7 @@ You might already have spotted it, but you can combine different selectors to ma
 Combining all selectors we have used so far we could do something like 
 
 ```css
-a#google-url.outside-link[href*="google"] {
-        property: propertyvalue;
-}
+a#google-url.outside-link[href*="google"]
 ```
 
 
