@@ -1,0 +1,1 @@
+This repository contains some basic "guides" about some concepts often used in testautomation. 
