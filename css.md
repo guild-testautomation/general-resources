@@ -40,7 +40,7 @@ In the rest of this guide we will just focus on the selectors as we are going to
 
 ## IDs & Classes
 
-IDs are supposed to be unique to one element and in css always start with #, in html you can also spot them rather easily 
+IDs are *supposed* to be unique to one element (this is **not** always the case so do not assume they are) and in css always start with #, in html you can also spot them rather easily 
 
 ```html
 <a id="thisThing">I am an url!</a>
