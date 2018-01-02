@@ -150,6 +150,66 @@ There are also pseudo classes to determine if something is visible, checked (for
 
 [See this page for more information](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
+## Combinators (parent, child & sibling relations)
+
+In many cases you can select the element you want by using the selectors for that specific element, often that isn't enough though. Consider the following html 
+
+```html
+<div id="parent1">
+    <span class="child">
+        This is the element we want.
+    </span>
+</div>
+<div id="parent2">
+    <span class="child">
+        This is the element we do not want.
+    </span>
+</div>
+```
+
+With the selectors we previously covered it isn't possible to select just the first `span` element with the `.child` class. 
+We can however use the parent as reference and use the following selector 
+
+```css
+#parent1 span.child
+``` 
+
+This effectively tells us that we want `span.child` only when it is the child element of `#parent1`. This is called a combinator and there are a variety of them that allow you to reference elements in a specific context. Before we continue a little bit about the terms used in here. 
+
+**parent**
+An element containing other elements. 
+
+```html
+<div class="parent">
+    <span>hello world</span>
+</div>
+```
+
+**child**
+An element that is part of a parent element.
+
+```html
+<div class="parent">
+    <span class="child">hello world</span>
+</div>
+```
+
+**siblings**
+Elements on the same level in HTML 
+```html
+<div class="parent">
+    <span class="child1" id="sibling-of-child2">hello world</span>
+    <span class="child2" id="sibling-of-child1">hello world</span>
+</div>
+```
+
+The main methods to make use of this are listed below.
+
+- `parentElement childElement` - descendant selector -  Any `childElement` that is the decended of `parentElement`
+- `parentElement > childElement` - child selector- Any `childElement` that is the a direct child of `parentElement`. Meaning that it will only look one level down.
+- `elementA + elementB` - adjacent sibling selector- selects `elementB` only if it immediately follows `elementA` in the same level. 
+- `elementA ~ elementB` - general sibling selector- selects `elementB` if it is one of the next siblings following `elementA`.
+
 ## additional reading
 
 [More about css selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
